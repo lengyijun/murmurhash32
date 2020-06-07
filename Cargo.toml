@@ -9,7 +9,10 @@ keywords = ["murmurhash"]
 repository = "https://github.com/tantivy-search/murmurhash32"
 
 [dependencies]
-byteorder = "1.2"
+byteorder = { git = "https://github.com/mesalock-linux/byteorder-sgx", branch = "master" }
+
+[target.'cfg(not(target_env = "sgx"))'.dependencies]
+sgx_tstd = { version = "1.0", rev = "v1.1.2", git = "https://github.com/apache/teaclave-sgx-sdk.git", features=["untrusted_fs","thread", "backtrace"] }
 
 [dev-dependencies]
 criterion = "0.2"

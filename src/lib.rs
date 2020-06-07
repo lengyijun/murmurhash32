@@ -1,3 +1,6 @@
+#![no_std]
+extern crate sgx_tstd as std;
+
 mod murmurhash2;
 mod murmurhash3;
 
